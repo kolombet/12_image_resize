@@ -22,7 +22,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     width_help = """Image result width. Other side will be scaled, to save
 image proportions, if height argument not specified"""
-    height_help = """Image result height. Other side will be scaled, ot save
+    height_help = """Image result height. Other side will be scaled, or save
 image proportions, if width argument not specified"""
     scale_help = """Image result scale. Using this argument, it will
 ignore width and height parameters"""

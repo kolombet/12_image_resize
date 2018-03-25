@@ -5,7 +5,7 @@ You can use parameters to resize image:
 1. **-W, --width**
 Image result width. Other side will be scaled, to save image proportions, if height argument not specified
 2. **-H, --height**
-Image result height. Other side will be scaled, ot save image proportions, if width argument not specified
+Image result height. Other side will be scaled, or save image proportions, if width argument not specified
 3. **-S, --scale**
 Image result scale. Using this argument, it will ignore width and height parameters
 4. **-I, --input**  
