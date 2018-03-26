@@ -91,19 +91,21 @@ def resize(input_path, params, output_path):
     return output_path
 
 
-def check_args(args):
-    if not args.input_file:
-        sys.exit("input image required")
-    if not args.scale and not args.width and not args.height:
-        sys.exit("please specify any resize parameters")
-    if args.scale:
-        if args.width or args.height:
-            sys.exit("if scale specified, width and height forbidden")
+def check_params(params):
+    if not params.input_file:
+        return "input image required"
+    if not params.scale and not params.width and not params.height:
+        return "please specify any resize parameters"
+    if params.scale:
+        if params.width or params.height:
+            return "if scale specified, width and height forbidden"
 
 
 if __name__ == "__main__":
     args = get_args()
-    check_args(args)
+    error_message = check_params(args)
+    if error_message:
+        sys.exit(error_message)
     output_path = resize(args.input_file, args, args.output)
     if not output_path:
         sys.exit("error: image not resized")
