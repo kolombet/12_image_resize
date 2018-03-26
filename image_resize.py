@@ -91,8 +91,7 @@ def resize(input_path, params, output_path):
     return output_path
 
 
-if __name__ == "__main__":
-    args = get_args()
+def check_args(args):
     if not args.input_file:
         sys.exit("input image required")
     if not args.scale and not args.width and not args.height:
@@ -100,8 +99,12 @@ if __name__ == "__main__":
     if args.scale:
         if args.width or args.height:
             sys.exit("if scale specified, width and height forbidden")
+
+
+if __name__ == "__main__":
+    args = get_args()
+    check_args(args)
     output_path = resize(args.input_file, args, args.output)
-    if output_path:
-        print("resized image saved as {}".format(output_path))
-    else:
-        print("error: image not resized")
+    if not output_path:
+        sys.exit("error: image not resized")
+    print("resized image saved as {}".format(output_path))
